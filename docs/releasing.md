@@ -15,18 +15,18 @@ ParseHub 官方包直接来自 PyPI，不重新打包或改版本。Latest 只�
 ## 应用
 
 1. 更新应用版本和 `CHANGELOG.md`，检查依赖锁和组件版本。
-2. 在默认分支运行 `application-release.yml`，消费验签组件与官方 SDK，构建用户及 QA 安装包，创建草稿。
+2. 在默认分支运行 `application-release.yml`，消费验签组件与官方 SDK，构建用户及 QA 安装包。下载工作流产物，用维护者账号创建应用发布草稿。
 3. 独立 QA 目录验收安装、启动、修复、卸载、布局和组件更新；通过后公开。
 4. 正文写清变化、安装方法、限制及数据兼容边界。附件只发布用户安装包与 `SHA256SUMS.txt`，不发布 QA 包、临时报告或缓存。
 5. 核对附件摘要，再设为 Latest。
 
 ## 执行组件
 
-`components-release.yml` 在 GitHub Actions 构建并检查完整组合，仅签名 `publish_components` 指定的变化组件并创建草稿。组件版本及签名 sequence 根据各自公开状态递增，不复用已发布标签替换二进制。
+`components-release.yml` 在 GitHub Actions 构建并检查完整组合，仅签名 `publish_components` 指定的组件。下载 `signed-execution-components` 产物，以维护者账号为各组件创建发布草稿。组件版本及签名 sequence 根据各自公开状态递增，不复用已发布标签替换二进制。
 
 签名任务使用受保护的 `engine-release` 环境。仓库只保留公钥和信任配置；Fork 可构建测试，独立发布需要自己的密钥和客户端信任。
 
-验收并公开组件后，运行 `component-catalog.yml`，传入目标标签和高于现有目录的 sequence；验证元数据后发布 `channel-components-v1/catalog.json` 与 `catalog.sig`。`component-catalog-renew.yml` 定期续签有效期，不重建组件。安装前验证整个候选组合，空闲切换，失败回滚。
+验收并公开组件后，运行 `component-catalog.yml`，传入目标标签和高于现有目录的 sequence；下载 `signed-component-catalog` 产物，以维护者账号将 `catalog.json` 与 `catalog.sig` 上传到固定的 `channel-components-v1` 发布。`component-catalog-renew.yml` 定期续签有效期，不重建组件。安装前验证整个候选组合，空闲切换，失败回滚。
 
 `upstream-watch.yml` 只读监测 PyPI；官方 wheel 更新也须通过当前依赖和 Worker 的兼容检查。
 

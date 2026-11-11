@@ -1,22 +1,15 @@
-## 下载安装
+## 下载与安装
 
-<!-- 在这里加入 Windows x64 安装包的直接下载链接、体积与系统要求。 -->
+Windows 10 2004（内部版本 19041）或更新版本，x64。在 Assets 中下载 `MediaGlean-*-win-x64-Setup.exe` 和 `SHA256SUMS.txt`。校验安装包的 SHA-256 后运行安装程序。
 
-安装包自带运行组件，按当前用户安装。升级前请退出应用。
+安装程序按当前用户安装，自带运行组件。预览版安装程序未进行 Windows 产品代码签名。[安装与升级](https://github.com/evan-dev0608/MediaGlean/blob/main/docs/user-guide.md#安装与升级)
 
-## 这个版本有哪些变化
+## 版本变更
 
-<!-- 列出用户能看到的主要变化与修复。按需链接 Issue 或 PR。 -->
+<!-- 列出本版对用户可见的功能、修复及升级步骤。 -->
 
-## 安装前须知
+## 问题反馈
 
-<!-- 写明发布状态、代码签名、升级与数据兼容性，以及已知限制。 -->
+请提交应用版本、Windows 版本、复现步骤和错误码。下载问题可附公开作品链接。请移除 Cookie、Token 和含凭据的日志。[提交 Issue](https://github.com/evan-dev0608/MediaGlean/issues/new/choose)
 
-[使用说明](https://github.com/evan-dev0608/MediaGlean/blob/main/docs/user-guide.md) · [问题反馈](https://github.com/evan-dev0608/MediaGlean/issues)
-
-<details>
-<summary>组件版本与文件校验</summary>
-
-<!-- 列出随包组件版本，以及 SHA256SUMS.txt、对应源码与构建记录的链接。 -->
-
-</details>
+[更新记录](https://github.com/evan-dev0608/MediaGlean/blob/main/CHANGELOG.md)

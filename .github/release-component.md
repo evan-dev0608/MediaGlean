@@ -1,7 +1,9 @@
-这是应用自动管理的执行组件，**不是 Windows 安装程序，无需手动下载或解压**。
+MediaGlean 通过应用内更新下载和安装此组件。下载安装程序请前往 [最新应用版本](https://github.com/evan-dev0608/MediaGlean/releases/latest)。
 
-需要安装应用请前往 [GitHub Releases](https://github.com/evan-dev0608/MediaGlean/releases)，选择标签以 `client-` 开头的应用版本。
+| 附件 | 用途 |
+| --- | --- |
+| `engine.zip` | 组件文件 |
+| `release.json` | 版本、兼容范围与 SHA-256 |
+| `release.sig` | 元数据签名 |
 
-组件附件：`engine.zip` 为组件内容，`release.json` 与 `release.sig` 为签名元数据。应用验证完整执行组合后安装，空闲切换，失败回滚。
-
-<!-- 维护者：公开前填写组件变化及兼容范围，完成执行组合验收；不要设为 Latest。 -->
+遇到组件更新问题，请附应用版本、组件版本和错误码。[提交 Issue](https://github.com/evan-dev0608/MediaGlean/issues/new/choose)

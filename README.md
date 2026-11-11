@@ -1,22 +1,20 @@
 <p align="center"><img src="native/MediaDownloader/Assets/AppIcon.png" width="72" alt="媒拾（MediaGlean）"></p>
 <h1 align="center">媒拾（MediaGlean）</h1>
 <p align="center">Windows 原生媒体下载工具 · WinUI 3 · ParseHub</p>
-<p align="center"><a href="https://github.com/evan-dev0608/MediaGlean/releases">下载安装</a> · <a href="docs/user-guide.md">使用说明</a> · <a href="https://github.com/evan-dev0608/MediaGlean/issues">问题反馈</a> · <a href="CONTRIBUTING.md">参与开发</a></p>
+<p align="center"><a href="https://github.com/evan-dev0608/MediaGlean/releases/latest">下载安装</a> · <a href="docs/user-guide.md">使用说明</a> · <a href="https://github.com/evan-dev0608/MediaGlean/issues">问题反馈</a> · <a href="CONTRIBUTING.md">参与开发</a></p>
 <p align="center"><a href="LICENSE"><img alt="许可证：MIT" src="https://img.shields.io/badge/license-MIT-blue"></a> <img alt="平台：Windows x64" src="https://img.shields.io/badge/platform-Windows%20x64-blue"></p>
 
 粘贴作品链接或分享文案，预览解析结果，再将视频、图片、图集、音频和图文保存到电脑。解析能力来自 [ParseHub](https://github.com/z-mio/ParseHub)，客户端负责下载管理、文件归档与组件更新。
 
 ## 下载与安装
 
-前往 **[GitHub Releases](https://github.com/evan-dev0608/MediaGlean/releases)**，选择标签以 `client-` 开头的应用版本，在 Assets 中下载以 `win-x64-Setup.exe` 结尾的安装程序。同一发布的 `SHA256SUMS.txt` 可用于校验下载文件。
+**系统要求**：Windows 10 2004（内部版本 19041）或更新版本，x64。
 
-- 当前为 **0.3.0 Preview 2**，适合体验和反馈，尚非稳定版。
-- Windows x64，建议 Windows 11；安装程序最低要求为 Windows 10 2004，旧系统尚未完成全面实机验证。不提供 x86 / ARM64 安装包。
-- 按当前用户安装，自带所需组件，无需预先安装 Python 或 FFmpeg。完整离线安装包约 **146 MiB**。
-- 预览安装程序尚未进行 Windows 产品代码签名。
-- 0.3 使用新数据目录，旧设置、Cookie 和任务不迁移；已有下载文件保留。
+1. 打开 [最新版本](https://github.com/evan-dev0608/MediaGlean/releases/latest)，在 Assets 中下载 `MediaGlean-*-win-x64-Setup.exe` 和 `SHA256SUMS.txt`。
+2. 用 PowerShell 运行 `Get-FileHash .\MediaGlean-*-win-x64-Setup.exe -Algorithm SHA256`，将摘要与 `SHA256SUMS.txt` 中同名文件的记录比较。
+3. 运行安装程序。安装按当前用户进行，自带所需运行组件。安装程序为预览版，尚未进行 Windows 产品代码签名。
 
-Release 中标有“组件”或“更新渠道”的发布由应用自动使用，**无需手动下载**。
+升级步骤见 [用户指南](docs/user-guide.md#安装与升级)。
 
 ## 主要功能
 
@@ -34,9 +32,7 @@ Release 中标有“组件”或“更新渠道”的发布由应用自动使用
 
 哔哩哔哩、抖音、小红书、快手、微博、知乎、百度贴吧、今日头条、微信公众号、微信视频号、酷安、豆瓣、Bangumi、小黑盒、皮皮虾、最右、YouTube、TikTok、Instagram、Facebook、X / Twitter、Threads、Snapchat、Medium。
 
-可处理类型包括 **视频、图片 / 图集、音频、文本、图文 / Markdown**，具体以所选 ParseHub 版本和作品预览为准。接入目录不代表全部平台均已完成在线验收。登录状态、网络、地区及平台接口变化可能影响结果；带登录凭据的视频号下载仍待完整验证。
-
-查看 [平台能力与已知限制](docs/platforms.md)。
+支持视频、图片、图集、音频、文本和 Markdown。各平台的文件类型及连接设置见 [平台支持表](docs/platforms.md)。
 
 ## 快速上手
 
@@ -53,7 +49,7 @@ Release 中标有“组件”或“更新渠道”的发布由应用自动使用
 ./build.ps1 -Stage app
 ```
 
-应用输出位于 `dist/native/MediaDownloader`。运行 `./build.ps1` 可构建完整安装包，输出位于 `dist/release`。依赖准备、测试命令和组件验收见 [贡献指南](CONTRIBUTING.md)。
+应用输出位于 `dist/native/MediaDownloader`。运行 `./build.ps1` 可构建完整安装包，输出位于 `dist/release`。依赖准备与测试命令见 [贡献指南](CONTRIBUTING.md)。
 
 ## 反馈与贡献
 
@@ -66,7 +62,7 @@ Release 中标有“组件”或“更新渠道”的发布由应用自动使用
 | 文档 | 内容 |
 | --- | --- |
 | [使用说明](docs/user-guide.md) | 安装、连接设置、下载和常见问题 |
-| [平台能力](docs/platforms.md) | 文件类型与验证边界 |
+| [平台能力](docs/platforms.md) | 平台、文件类型与连接要求 |
 | [贡献指南](CONTRIBUTING.md) | 环境、测试、构建与提交 |
 | [组件架构](docs/components.md) | 五个发布单元与更新机制 |
 | [发布维护](docs/releasing.md) | 命名、Actions 与更新渠道 |

@@ -21,8 +21,6 @@ jobs:
     if: github.ref == format('refs/heads/{0}', github.event.repository.default_branch)
     runs-on: windows-latest
     environment: engine-release
-    permissions:
-      contents: write
     timeout-minutes: 15
     steps:
       - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
@@ -61,14 +59,11 @@ jobs:
           }
           uv run --no-sync python scripts/build_component_catalog.py @directories --output build/catalog --sequence $env:CATALOG_SEQUENCE @previous
           if ($LASTEXITCODE -ne 0) { throw 'Catalog verification/signing failed' }
-      - name: Publish fixed channel discovery assets without changing Latest
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          gh release view channel-components-v1 --json tagName 2>$null
-          if ($LASTEXITCODE -ne 0) {
-            gh release create channel-components-v1 --target $env:GITHUB_SHA --latest=false --title '[更新渠道] 执行组件' --notes '供应用自动读取的签名更新目录，无需手动下载。安装软件请访问 Releases/latest。ParseHub 官方包独立从 PyPI 获取，本渠道只管理执行组件。'
-            if ($LASTEXITCODE -ne 0) { throw 'Channel creation failed' }
-          }
-          gh release upload channel-components-v1 build/catalog/catalog.json build/catalog/catalog.sig --clobber
-          if ($LASTEXITCODE -ne 0) { throw 'Catalog publication failed' }
+      - uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f
+        with:
+          name: signed-component-catalog
+          path: |
+            build/catalog/catalog.json
+            build/catalog/catalog.sig
+          if-no-files-found: error
+          retention-days: 7

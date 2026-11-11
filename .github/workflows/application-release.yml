@@ -1,4 +1,4 @@
-name: Build Windows application package draft
+name: Build Windows application release packages
 on:
   workflow_dispatch:
     inputs:
@@ -24,8 +24,6 @@ jobs:
     if: github.ref == format('refs/heads/{0}', github.event.repository.default_branch)
     runs-on: windows-latest
     environment: engine-release
-    permissions:
-      contents: write
     timeout-minutes: 40
     steps:
       - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
@@ -62,10 +60,6 @@ jobs:
             dist/release/qa-release.json
             dist/release/*payload.json
             dist/release/SHA256SUMS.txt
-      - name: Create reviewable application draft
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          $release = Get-Content dist/release/release.json -Raw | ConvertFrom-Json
-          Copy-Item .github/release-application.md build/app-release-notes.md
-          gh release create "client-$($release.release)" "dist/release/$($release.installer)" dist/release/SHA256SUMS.txt --target $env:GITHUB_SHA --draft --latest=false --title "媒拾（MediaGlean） $($release.release) · Windows x64" --notes-file build/app-release-notes.md
+            .github/release-application.md
+          if-no-files-found: error
+          retention-days: 7
