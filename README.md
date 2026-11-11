@@ -1,4 +1,4 @@
-<p align="center"><img src="native/MediaDownloader/Assets/AppIcon.png" width="72" alt="媒拾（MediaGlean）"></p>
+<p align="center"><img src="assets/MediaGlean.png" width="72" alt="媒拾（MediaGlean）"></p>
 <h1 align="center">媒拾（MediaGlean）</h1>
 <p align="center">Windows 原生媒体下载工具 · WinUI 3 · ParseHub</p>
 <p align="center"><a href="https://github.com/evan-dev0608/MediaGlean/releases/latest">下载安装</a> · <a href="docs/user-guide.md">使用说明</a> · <a href="https://github.com/evan-dev0608/MediaGlean/issues">问题反馈</a> · <a href="CONTRIBUTING.md">参与开发</a></p>
@@ -49,7 +49,7 @@
 ./build.ps1 -Stage app
 ```
 
-应用输出位于 `dist/native/MediaDownloader`。运行 `./build.ps1` 可构建完整安装包，输出位于 `dist/release`。依赖准备与测试命令见 [贡献指南](CONTRIBUTING.md)。
+运行 `./build.ps1` 可构建完整安装包，输出位于 `dist/release`。开发环境、应用输出路径和测试命令见 [贡献指南](CONTRIBUTING.md)。
 
 ## 反馈与贡献
 

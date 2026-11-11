@@ -16,6 +16,8 @@ def main():
         raise RuntimeError("Invalid app mark")
     output = root / "build/icons"
     output.mkdir(parents=True, exist_ok=True)
+    readme_assets = root / "assets"
+    readme_assets.mkdir(parents=True, exist_ok=True)
     sizes = (16, 20, 24, 32, 40, 48, 64, 128, 256)
     rasters = {}
     for size in sizes:
@@ -35,6 +37,7 @@ def main():
             append_images=[Image.open(rasters[size]).copy() for size in sizes if size != 256],
         )
         source.save(assets / "AppIcon.png")
+        source.save(readme_assets / "MediaGlean.png")
         source.save(output / "media-downloader.png")
     (output / "media-downloader.ico").write_bytes((assets / "AppIcon.ico").read_bytes())
 

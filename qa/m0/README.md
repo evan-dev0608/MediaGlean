@@ -34,7 +34,7 @@ platform 为 bilibili/douyin/xhs；category 记录 video/gallery/short_link/logi
 
 ## 干净机必须另验
 
-准备无 Python/FFmpeg 的 Windows 10/11 x64 标准用户环境，仅复制 MediaDownloader 和 media-engine 产物目录。不要把开发 .venv 或系统工具加进 PATH。
+准备无 Python/FFmpeg 的 Windows 10/11 x64 标准用户环境，仅复制 M0 应用与解析引擎的产物目录。不要把开发 .venv 或系统工具加进 PATH。
 
 1. 启动客户端，显式指定内核目录；完成窗口、字体和 DPI 检查。
 2. 运行内核 `--self-test --output <新目录>`；要求三个捆绑工具均可用，中文视频/图集下载和解码通过。
