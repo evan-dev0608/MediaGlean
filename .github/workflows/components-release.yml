@@ -5,15 +5,15 @@ on:
       worker_version:
         type: string
         required: true
-        default: '0.3.0'
+        default: '0.3.1'
       runtime_version:
         type: string
         required: true
-        default: '1.0.0'
+        default: '1.0.1'
       tools_version:
         type: string
         required: true
-        default: '1.0.0'
+        default: '1.0.1'
       publish_components:
         description: Space-separated worker python-runtime media-tools; only changed components need release
         type: string
@@ -22,7 +22,7 @@ on:
       sequence:
         type: number
         required: true
-        default: 1
+        default: 3
 env:
   PYTHONUTF8: '1'
 permissions:

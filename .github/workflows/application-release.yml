@@ -6,17 +6,17 @@ on:
         description: Accepted Worker component
         required: true
         type: string
-        default: '0.3.0'
+        default: '0.3.1'
       runtime_version:
         description: Accepted Python environment
         required: true
         type: string
-        default: '1.0.0'
+        default: '1.0.1'
       tools_version:
         description: Accepted media tool pair
         required: true
         type: string
-        default: '1.0.0'
+        default: '1.0.1'
 permissions:
   contents: read
 jobs:
