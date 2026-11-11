@@ -2,6 +2,11 @@
 
 应用安装包使用 `client-<版本>` 标签；独立组件不作为应用版本记录。下载见 [Releases](https://github.com/evan-dev0608/MediaGlean/releases)。
 
+## 0.3.0 Preview 2 — 2026-11-11
+
+- 安装包内置官方 ParseHub 2.4.1，并随新版执行组件一起验收。
+- 新安装默认使用 `%LOCALAPPDATA%\Programs\MediaGlean`。使用旧默认目录的用户可先卸载再安装，应用数据和下载文件会保留。
+
 ## 0.3.0 Preview 1 · MediaGlean 首发 — 2026-11-11
 
 - Windows 应用采用 MediaGlean 品牌、新图标和 `MediaGlean.exe` 主程序。

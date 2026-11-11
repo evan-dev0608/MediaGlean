@@ -5,8 +5,8 @@
 #ifndef ReleaseDir
   #error ReleaseDir is required
 #endif
-#define ReleaseVersion "0.3.0-preview.1"
-#define PayloadVersion "0.3.0-preview.1"
+#define ReleaseVersion "0.3.0-preview.2"
+#define PayloadVersion "0.3.0-preview.2"
 #ifdef QA
   #define ProductName "媒拾 Installer QA"
 #else
@@ -23,8 +23,8 @@ AppName={#ProductName}
 AppVersion={#ReleaseVersion}
 AppVerName=MediaGlean {#ReleaseVersion}
 AppPublisher=MediaGlean Project
-VersionInfoVersion=0.3.0.1
-DefaultDirName={localappdata}\Programs\MediaDownloader
+VersionInfoVersion=0.3.0.2
+DefaultDirName={localappdata}\Programs\MediaGlean
 DefaultGroupName={#ProductName}
 PrivilegesRequired=lowest
 SetupArchitecture=x64
@@ -82,9 +82,20 @@ Filename: "{app}\versions\{#PayloadVersion}\MediaGlean.exe"; Description: "启�
 
 [Code]
 function InitializeSetup(): Boolean;
+#ifndef QA
+var
+  PreviousAppPath: String;
+#endif
 begin
   Result := True;
 #ifndef QA
+  if RegQueryStringValue(HKCU64, 'Software\Microsoft\Windows\CurrentVersion\Uninstall\{8F5574CB-A715-4BA1-AD07-4212A70D460B}_is1', 'Inno Setup: App Path', PreviousAppPath) and
+     (CompareText(RemoveBackslashUnlessRoot(PreviousAppPath), ExpandConstant('{localappdata}\Programs\MediaDownloader')) = 0) then
+  begin
+    SuppressibleMsgBox('请先在 Windows 设置中卸载使用旧默认目录的版本，再安装到 MediaGlean。任务、设置、Cookie 和下载文件会保留。', mbError, MB_OK, IDOK);
+    Result := False;
+    Exit;
+  end;
   if RegKeyExists(HKCU, 'Software\Microsoft\Windows\CurrentVersion\Uninstall\{3D263939-3941-508D-B62D-8D39C441EB61}') or
      RegKeyExists(HKCU, 'Software\Microsoft\Windows\CurrentVersion\Uninstall\{3EB8D870-6330-5752-B6BD-0B3D1CC12A49}') or
      RegKeyExists(HKLM, 'Software\Microsoft\Windows\CurrentVersion\Uninstall\{58A7D313-54D5-57E0-A844-DA165F6FC84B}') then

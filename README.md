@@ -10,7 +10,7 @@
 
 前往 **[GitHub Releases](https://github.com/evan-dev0608/MediaGlean/releases)**，选择标签以 `client-` 开头的应用版本，在 Assets 中下载以 `win-x64-Setup.exe` 结尾的安装程序。同一发布的 `SHA256SUMS.txt` 可用于校验下载文件。
 
-- 当前为 **0.3.0 Preview 1**，适合体验和反馈，尚非稳定版。
+- 当前为 **0.3.0 Preview 2**，适合体验和反馈，尚非稳定版。
 - Windows x64，建议 Windows 11；安装程序最低要求为 Windows 10 2004，旧系统尚未完成全面实机验证。不提供 x86 / ARM64 安装包。
 - 按当前用户安装，自带所需组件，无需预先安装 Python 或 FFmpeg。完整离线安装包约 **146 MiB**。
 - 预览安装程序尚未进行 Windows 产品代码签名。
