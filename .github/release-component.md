@@ -1,4 +1,4 @@
-MediaGlean 通过应用内更新下载和安装此组件。下载安装程序请前往 [最新应用版本](https://github.com/evan-dev0608/MediaGlean/releases/latest)。
+MediaGlean 通过应用内更新下载和安装此组件。下载安装程序请前往 [应用发布](https://github.com/evan-dev0608/MediaGlean/releases)。
 
 | 附件 | 用途 |
 | --- | --- |

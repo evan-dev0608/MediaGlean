@@ -10,7 +10,7 @@
 | 媒体工具 | `media-tools-<版本>` | `[组件] 媒体工具 <版本>` | 应用自动安装 |
 | 当前目录 | `channel-components-v1` | `[更新渠道] 执行组件` | 应用自动读取 |
 
-ParseHub 官方包直接来自 PyPI，不重新打包或改版本。Latest 只指向推荐应用安装包；当前为 Beta，标题和正文必须明确。组件和渠道均设置 `make_latest=false`。当前下载与更新入口不修改标签和附件名。
+ParseHub 官方包直接来自 PyPI，不重新打包或改版本。Beta 应用发布在 GitHub 标记为 Pre-release。组件和渠道均设置 `make_latest=false`。当前下载与更新入口不修改标签和附件名。
 
 ## 应用
 
@@ -18,7 +18,7 @@ ParseHub 官方包直接来自 PyPI，不重新打包或改版本。Latest 只�
 2. 在默认分支运行 `application-release.yml`，消费验签组件与官方 SDK，构建用户及 QA 安装包。下载工作流产物，用维护者账号创建应用发布草稿。
 3. 独立 QA 目录验收安装、启动、修复、卸载、布局和组件更新；通过后公开。
 4. 正文写清变化、安装方法、限制及数据兼容边界。附件只发布用户安装包与 `SHA256SUMS.txt`，不发布 QA 包、临时报告或缓存。
-5. 核对附件摘要，再设为 Latest。
+5. 核对附件摘要后公开。Beta 标记为 Pre-release，稳定版可设为 Latest。
 
 ## 执行组件
 
