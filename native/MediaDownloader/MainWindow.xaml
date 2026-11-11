@@ -2,7 +2,7 @@
 <Window x:Class="MediaDownloader.MainWindow"
  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
- xmlns:local="using:MediaDownloader" Title="Media Downloader">
+ xmlns:local="using:MediaDownloader" Title="媒拾 (MediaGlean)">
  <Window.SystemBackdrop><MicaBackdrop /></Window.SystemBackdrop>
  <Grid x:Name="Root">
   <Grid.Resources>
@@ -31,7 +31,7 @@
    </DataTemplate>
   </Grid.Resources>
   <Grid.RowDefinitions><RowDefinition Height="Auto"/><RowDefinition Height="*"/></Grid.RowDefinitions>
-  <TitleBar x:Name="AppTitleBar" Title="Media Downloader">
+  <TitleBar x:Name="AppTitleBar" Title="媒拾 (MediaGlean)">
    <TitleBar.IconSource><ImageIconSource ImageSource="Assets/AppIcon.png"/></TitleBar.IconSource>
   </TitleBar>
   <NavigationView x:Name="Nav" Grid.Row="1" IsBackButtonVisible="Collapsed" IsSettingsVisible="True"

@@ -11,7 +11,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 def main():
-    executable = ROOT / "dist/native/MediaDownloader/MediaDownloader.exe"
+    executable = ROOT / "dist/native/MediaDownloader/MediaGlean.exe"
     directory = ROOT / "review/native/layout-preview12"
     directory.mkdir(parents=True, exist_ok=True)
     run_directory = directory / str(time.time_ns())

@@ -63,7 +63,7 @@ def main():
         check=True,
     )
     native_bin = ROOT / "native/MediaDownloader/bin/x64/Release/net10.0-windows10.0.26100.0/win-x64"
-    for resource in [native_bin / "MediaDownloader.pri", *native_bin.glob("*.xbf")]:
+    for resource in [native_bin / "MediaGlean.pri", *native_bin.glob("*.xbf")]:
         shutil.copy2(resource, OUT / resource.name)
     entry = ROOT / "build/entries/native_backend.py"
     entry.parent.mkdir(parents=True, exist_ok=True)

@@ -183,7 +183,7 @@ public sealed partial class MainWindow
         updateAdvanced.Content = options;
         body.Children.Add(updateAdvanced);
         var about = SettingsGroup("应用包");
-        var aboutRow = SettingRow("Media Downloader", "", ActionButton("版本详情", async (_, _) => await ShowVersionsAsync()));
+        var aboutRow = SettingRow("媒拾（MediaGlean）", "", ActionButton("版本详情", async (_, _) => await ShowVersionsAsync()));
         settingsAboutRow = aboutRow;
         productVersion.Style = (Style)Application.Current.Resources["SecondaryText"]; productVersion.FontSize = 12;
         ((StackPanel)aboutRow.Children[0]).Children.RemoveAt(1); ((StackPanel)aboutRow.Children[0]).Children.Add(productVersion);
@@ -278,7 +278,7 @@ public sealed partial class MainWindow
     private async Task ExportDiagnosticsAsync()
     {
         var data = await CallAsync("diagnostics"); if (data is null) return;
-        var picker = new FileSavePicker { SuggestedFileName = "MediaDownloader-diagnostics" };
+        var picker = new FileSavePicker { SuggestedFileName = "MediaGlean-diagnostics" };
         picker.FileTypeChoices.Add("诊断文件", new List<string> { ".json" });
         WinRT.Interop.InitializeWithWindow.Initialize(picker, WinRT.Interop.WindowNative.GetWindowHandle(this));
         var file = await picker.PickSaveFileAsync();

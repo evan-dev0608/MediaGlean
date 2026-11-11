@@ -46,13 +46,13 @@ def main():
     upgrade = uuid.uuid5(UPGRADE, "msi-qa") if args.qa else UPGRADE
     product = uuid.uuid5(upgrade, MSI_VERSION)
     app_key = r"Software\MediaDownloaderMSIQA" if args.qa else r"Software\MediaDownloader"
-    name = "Media Downloader MSI QA" if args.qa else "Media Downloader"
+    name = "MediaGlean MSI QA" if args.qa else "MediaGlean"
     root = ET.Element(f"{{{NS}}}Wix")
     package = element(
         root,
         "Package",
         Name=name,
-        Manufacturer="Media Downloader Project",
+        Manufacturer="MediaGlean Project",
         Version=MSI_VERSION,
         Language="2052",
         Scope="perMachine",
@@ -63,7 +63,7 @@ def main():
         package,
         "SummaryInformation",
         Description=f"{name} {RELEASE} x64",
-        Manufacturer="Media Downloader Project",
+        Manufacturer="MediaGlean Project",
     )
     element(package, "MajorUpgrade", DowngradeErrorMessage="已安装更新版本，不能降级安装。")
     element(package, "MediaTemplate", EmbedCab="yes", CompressionLevel="high")
@@ -137,7 +137,7 @@ def main():
     versions = element(install, "Directory", Id="Versions", Name="versions")
     version = element(versions, "Directory", Id="Payload", Name=RELEASE)
     element(package, "StandardDirectory", Id="ProgramMenuFolder")
-    feature = element(package, "Feature", Id="Complete", Title="Media Downloader", Level="1")
+    feature = element(package, "Feature", Id="Complete", Title="MediaGlean", Level="1")
     root_component = element(
         install,
         "Component",
@@ -190,7 +190,7 @@ def main():
             Value=RELEASE,
             KeyPath="yes",
         )
-        if relative.as_posix() == "MediaDownloader.exe":
+        if relative.as_posix() == "MediaGlean.exe":
             element(
                 component,
                 "Shortcut",

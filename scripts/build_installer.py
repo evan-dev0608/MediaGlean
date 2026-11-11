@@ -40,8 +40,8 @@ def main():
     output = ROOT / "dist/release"
     output.mkdir(parents=True, exist_ok=True)
     required = [
-        "MediaDownloader.exe",
-        "MediaDownloader.pri",
+        "MediaGlean.exe",
+        "MediaGlean.pri",
         "MainWindow.xbf",
         "App.xbf",
         "backend/MediaBackend.exe",
@@ -62,7 +62,7 @@ def main():
         {"path": path.relative_to(payload).as_posix(), "bytes": path.stat().st_size, "sha256": digest(path)}
         for path in files
     ]
-    inventory_path = output / f"MediaDownloader-{RELEASE}{'-QA' if args.qa else ''}-payload.json"
+    inventory_path = output / f"MediaGlean-{RELEASE}{'-QA' if args.qa else ''}-payload.json"
     inventory_path.write_text(json.dumps(inventory, indent=2), encoding="utf-8")
     for name in ["ChineseSimplified.isl", "InstallInfo.txt"]:
         path = ROOT / "packaging/windows" / name
@@ -80,7 +80,7 @@ def main():
     log = ROOT / f"build/installer-compile{'-qa' if args.qa else ''}.log"
     with log.open("w", encoding="utf-8") as stream:
         subprocess.run(command, cwd=ROOT, stdout=stream, stderr=subprocess.STDOUT, check=True)
-    installer = output / f"MediaDownloader-{RELEASE}-win-x64{'-QA' if args.qa else ''}-Setup.exe"
+    installer = output / f"MediaGlean-{RELEASE}-win-x64{'-QA' if args.qa else ''}-Setup.exe"
     assert machine(installer) == 0x8664, "The setup loader itself must be native x64"
     report = {
         "release": RELEASE,

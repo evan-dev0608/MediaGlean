@@ -1,13 +1,14 @@
 <p align="center"><img src="native/MediaDownloader/Assets/AppIcon.png" width="72" alt="媒拾（MediaGlean）"></p>
 <h1 align="center">媒拾（MediaGlean）</h1>
 <p align="center">Windows 原生媒体下载工具 · WinUI 3 · ParseHub</p>
-<p align="center"><a href="https://github.com/chenzhenpeng/MediaDownloader-Windows/releases/latest">下载安装</a> · <a href="docs/user-guide.md">使用说明</a> · <a href="https://github.com/chenzhenpeng/MediaDownloader-Windows/issues">问题反馈</a> · <a href="CONTRIBUTING.md">参与开发</a></p>
+<p align="center"><a href="https://github.com/evan-dev0608/MediaGlean/releases">下载安装</a> · <a href="docs/user-guide.md">使用说明</a> · <a href="https://github.com/evan-dev0608/MediaGlean/issues">问题反馈</a> · <a href="CONTRIBUTING.md">参与开发</a></p>
+<p align="center"><a href="LICENSE"><img alt="许可证：MIT" src="https://img.shields.io/badge/license-MIT-blue"></a> <img alt="平台：Windows x64" src="https://img.shields.io/badge/platform-Windows%20x64-blue"></p>
 
 粘贴作品链接或分享文案，预览解析结果，再将视频、图片、图集、音频和图文保存到电脑。解析能力来自 [ParseHub](https://github.com/z-mio/ParseHub)，客户端负责下载管理、文件归档与组件更新。
 
 ## 下载与安装
 
-前往 **[最新应用版本](https://github.com/chenzhenpeng/MediaDownloader-Windows/releases/latest)**，下载附件中以 `win-x64-Setup.exe` 结尾的安装程序。`SHA256SUMS.txt` 用于校验文件。
+前往 **[GitHub Releases](https://github.com/evan-dev0608/MediaGlean/releases)**，选择标签以 `client-` 开头的应用版本，在 Assets 中下载以 `win-x64-Setup.exe` 结尾的安装程序。同一发布的 `SHA256SUMS.txt` 可用于校验下载文件。
 
 - 当前为 **0.3.0 Preview 1**，适合体验和反馈，尚非稳定版。
 - Windows x64，建议 Windows 11；安装程序最低要求为 Windows 10 2004，旧系统尚未完成全面实机验证。不提供 x86 / ARM64 安装包。
@@ -37,14 +38,28 @@ Release 中标有“组件”或“更新渠道”的发布由应用自动使用
 
 查看 [平台能力与已知限制](docs/platforms.md)。
 
-## 快速开始
+## 快速上手
 
 1. 安装并启动，在“设置”中选择保存位置；需要登录的平台在“平台连接”中配置。
 2. 打开“新建下载”，粘贴链接或分享文案，点击“解析并预览”。
 3. 确认解析结果，点击“开始下载”。
 4. 在“下载管理”中查看进度、重试或打开文件。
 
-遇到问题请先阅读 [常见问题](docs/user-guide.md#常见问题)。反馈时附版本、平台、公开作品链接与错误码，**请勿提交 Cookie、Token 或含凭据的日志**。
+## 从源码构建
+
+开发环境需要 Windows x64、Python 3.12、uv、7-Zip、Windows SDK 10.0.26100，以及 [native/global.json](native/global.json) 指定的 .NET SDK。在项目根目录运行：
+
+```powershell
+./build.ps1 -Stage app
+```
+
+应用输出位于 `dist/native/MediaDownloader`。运行 `./build.ps1` 可构建完整安装包，输出位于 `dist/release`。依赖准备、测试命令和组件验收见 [贡献指南](CONTRIBUTING.md)。
+
+## 反馈与贡献
+
+- 使用或安装遇到问题时，先查看 [常见问题](docs/user-guide.md#常见问题)。
+- 提交 [GitHub Issue](https://github.com/evan-dev0608/MediaGlean/issues) 时，请附上应用版本、Windows 版本、复现步骤和错误码。下载问题可附公开作品链接。**请勿提交 Cookie、Token 或含凭据的日志。**
+- 欢迎提交代码修复和文档改进。提交前请阅读 [贡献指南](CONTRIBUTING.md)。
 
 ## 项目文档
 

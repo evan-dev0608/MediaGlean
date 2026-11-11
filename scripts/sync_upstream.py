@@ -47,7 +47,7 @@ def apply_reviewed_patch(candidate, patch):
 def latest_release(repository):
     request = urllib.request.Request(
         "https://api.github.com/repos/z-mio/ParseHub/releases/latest",
-        headers={"User-Agent": "MediaDownloader-Upstream-Watch", "Accept": "application/vnd.github+json"},
+        headers={"User-Agent": "MediaGlean-Upstream-Watch", "Accept": "application/vnd.github+json"},
     )
     try:
         with urllib.request.urlopen(request, timeout=15) as response:

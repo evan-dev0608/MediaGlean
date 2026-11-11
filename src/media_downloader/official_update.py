@@ -16,7 +16,7 @@ def check_official_release(current_sha):
             with client.stream(
                 "GET",
                 OFFICIAL_API,
-                headers={"Accept": "application/vnd.github+json", "User-Agent": "MediaDownloader-Windows"},
+                headers={"Accept": "application/vnd.github+json", "User-Agent": "MediaGlean"},
             ) as response:
                 if response.status_code in {403, 429}:
                     return {"status": "error", "message": "官方源暂时限制了检查频率，请稍后重试。"}

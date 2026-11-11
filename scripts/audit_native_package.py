@@ -48,7 +48,7 @@ def main():
     assert not (components["worker"] / "app/media_downloader/ui.py").exists()
     for name, expected in expected_tools.items():
         assert hashlib.file_digest((tools / name).open("rb"), "sha256").hexdigest() == expected
-    installer = ROOT / f"dist/release/MediaDownloader-{RELEASE}-win-x64-Setup.exe"
+    installer = ROOT / f"dist/release/MediaGlean-{RELEASE}-win-x64-Setup.exe"
     previous = ROOT / "dist/release/MediaDownloader-0.2.0-preview.6-win-x64.msi"
     report = {
         "passed": True,

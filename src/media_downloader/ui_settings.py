@@ -115,7 +115,7 @@ def build_settings(window, layout):
     layout.addWidget(options)
     layout.addSpacing(12)
     layout.addWidget(label("关于", "section"))
-    layout.addWidget(SettingRow("Media Downloader", f"版本 {__version__} · 开发预览版", glyph="\ue946"))
+    layout.addWidget(SettingRow("媒拾", f"版本 {__version__} · 开发预览版", glyph="\ue946"))
     components = Expander("组件信息与诊断")
     window.engine_version_info = label("", "secondary")
     components.content.addWidget(window.engine_version_info)

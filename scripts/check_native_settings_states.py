@@ -31,7 +31,7 @@ def main():
                 name = f"{'wide' if wide else 'narrow'}-{theme}-{component}-{state}"
                 output = directory / f"{name}.json"
                 args = [
-                    str(ROOT / "dist/native/MediaDownloader/MediaDownloader.exe"),
+                    str(ROOT / "dist/native/MediaDownloader/MediaGlean.exe"),
                     "--data-dir",
                     str(ROOT / ".local/native/settings-states-preview12"),
                     "--smoke-report",

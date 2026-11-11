@@ -68,4 +68,4 @@ jobs:
         run: |
           $release = Get-Content dist/release/release.json -Raw | ConvertFrom-Json
           Copy-Item .github/release-application.md build/app-release-notes.md
-          gh release create "client-$($release.release)" "dist/release/$($release.installer)" dist/release/SHA256SUMS.txt --target $env:GITHUB_SHA --draft --latest=false --title "Media Downloader $($release.release) · Windows x64" --notes-file build/app-release-notes.md
+          gh release create "client-$($release.release)" "dist/release/$($release.installer)" dist/release/SHA256SUMS.txt --target $env:GITHUB_SHA --draft --latest=false --title "媒拾（MediaGlean） $($release.release) · Windows x64" --notes-file build/app-release-notes.md

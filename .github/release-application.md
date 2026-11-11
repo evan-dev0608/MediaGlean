@@ -12,7 +12,7 @@
 
 <!-- 写明发布状态、代码签名、升级与数据兼容性，以及已知限制。 -->
 
-[使用说明](https://github.com/chenzhenpeng/MediaDownloader-Windows/blob/main/docs/user-guide.md) · [问题反馈](https://github.com/chenzhenpeng/MediaDownloader-Windows/issues)
+[使用说明](https://github.com/evan-dev0608/MediaGlean/blob/main/docs/user-guide.md) · [问题反馈](https://github.com/evan-dev0608/MediaGlean/issues)
 
 <details>
 <summary>组件版本与文件校验</summary>

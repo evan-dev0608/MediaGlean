@@ -101,7 +101,7 @@ class MainWindow(QMainWindow):
 
             self.updates = UpdateManager(self.service, engine_store, self)
         self.service.changed.connect(self.refresh)
-        self.setWindowTitle("Media Downloader")
+        self.setWindowTitle("媒拾")
         self.resize(1200, 800)
         self.setWindowIcon(app_icon())
         self.setMinimumSize(900, 640)
@@ -126,7 +126,7 @@ class MainWindow(QMainWindow):
         mark.setPixmap(app_icon().pixmap(28, 28))
         mark.setFixedSize(28, 28)
         brand_row.addWidget(mark)
-        self.brand = text_label("Media Downloader", "brand")
+        self.brand = text_label("媒拾", "brand")
         brand_row.addWidget(self.brand, 1)
         nav.addLayout(brand_row)
         nav.addSpacing(12)
@@ -505,7 +505,7 @@ class MainWindow(QMainWindow):
 
     def export_diagnostics(self):
         path, _ = QFileDialog.getSaveFileName(
-            self, "导出诊断记录", "MediaDownloader-diagnostics.json", "JSON (*.json)"
+            self, "导出诊断记录", "MediaGlean-diagnostics.json", "JSON (*.json)"
         )
         if path:
             try:

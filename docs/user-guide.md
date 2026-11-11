@@ -2,7 +2,7 @@
 
 ## 安装与卸载
 
-从 [最新应用 Release](https://github.com/chenzhenpeng/MediaDownloader-Windows/releases/latest) 下载 `win-x64-Setup.exe`。按当前用户安装；更新前退出应用。无需手动安装 Python、ParseHub 或媒体工具。
+在 [GitHub Releases](https://github.com/evan-dev0608/MediaGlean/releases) 中选择标签以 `client-` 开头的应用版本，下载以 `win-x64-Setup.exe` 结尾的安装程序。按当前用户安装；更新前退出应用。无需手动安装 Python、ParseHub 或媒体工具。
 
 当前为尚未进行 Windows 产品代码签名的预览版。0.3 使用 `%LOCALAPPDATA%/MediaDownloader/v6`，不迁移旧版数据。卸载不会删除已有下载文件。
 
@@ -44,4 +44,4 @@
 
 ### 如何反馈？
 
-到 [Issues](https://github.com/chenzhenpeng/MediaDownloader-Windows/issues) 提供应用及组件版本、Windows 版本、公开作品链接、步骤和错误码。删除凭据、个人路径和私密链接后再上传日志。
+到 [Issues](https://github.com/evan-dev0608/MediaGlean/issues) 提供应用及组件版本、Windows 版本、公开作品链接、步骤和错误码。删除凭据、个人路径和私密链接后再上传日志。

@@ -13,8 +13,8 @@ ROOT = Path(__file__).resolve().parents[1]
 def main():
     directory = ROOT / "dist/native/MediaDownloader"
     required = [
-        "MediaDownloader.exe",
-        "MediaDownloader.pri",
+        "MediaGlean.exe",
+        "MediaGlean.pri",
         "MainWindow.xbf",
         "App.xbf",
         "backend/MediaBackend.exe",
@@ -23,14 +23,14 @@ def main():
     ]
     assert all((directory / name).is_file() for name in required)
     readme = (
-        "Media Downloader 0.2.0.dev13 - WinUI 3 原生界面预览版\n\n"
-        "请完整解压后运行 MediaDownloader/MediaDownloader.exe。无需单独安装 .NET。\n"
+        "MediaGlean - WinUI 3 原生界面预览版\n\n"
+        "请完整解压后运行 MediaDownloader/MediaGlean.exe。无需单独安装 .NET。\n"
         "请先关闭旧客户端；新旧版本使用同一任务数据目录，不能同时运行。\n"
         "保留 backend、engine、Assets、PRI、XBF 和所有运行库文件。\n"
         "本包未签名，属于本地测试包；已配置受信任的 GitHub 内核签名更新源。\n"
         "按平台与作品归档的下载规则、已有任务和内核更新机制继续保留。\n"
     )
-    archive = ROOT / "dist/native/MediaDownloader-NATIVE.zip"
+    archive = ROOT / "dist/native/MediaGlean-NATIVE.zip"
     files = sorted(p for p in directory.rglob("*") if p.is_file())
     assert not any(p.suffix in {".sqlite3", ".db"} for p in files)
     with zipfile.ZipFile(

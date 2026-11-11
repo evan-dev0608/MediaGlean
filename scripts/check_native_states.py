@@ -20,7 +20,7 @@ def main():
             for state in ("parsing", "ready", "failed", "download-transition"):
                 report = directory / f"{mode}-{theme}-{state}.json"
                 command = [
-                    str(ROOT / "dist/native/MediaDownloader/MediaDownloader.exe"),
+                    str(ROOT / "dist/native/MediaDownloader/MediaGlean.exe"),
                     "--data-dir",
                     str(data),
                     "--smoke-report",

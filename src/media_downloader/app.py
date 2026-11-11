@@ -7,7 +7,7 @@ from pathlib import Path
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Windows Media Downloader")
+    parser = argparse.ArgumentParser(description="MediaGlean for Windows")
     parser.add_argument("--smoke-test", type=Path, help="Save an offscreen window capture and exit")
     parser.add_argument("--smoke-page", type=int, choices=range(4), default=0)
     parser.add_argument("--smoke-width", type=int, choices=[900, 1120, 1280], default=1120)
@@ -34,13 +34,13 @@ def main() -> int:
     from .localization import install_chinese
 
     install_chinese(app)
-    app.setApplicationName("Media Downloader")
+    app.setApplicationName("媒拾")
     app.setOrganizationName("MediaDownloader")
     instance_lock = QLockFile(str(data_directory() / "application.lock"))
     if not instance_lock.tryLock(0):
         from PySide6.QtWidgets import QMessageBox
 
-        QMessageBox.information(None, "Media Downloader", "应用已在运行，请切换到已打开的窗口。")
+        QMessageBox.information(None, "媒拾", "应用已在运行，请切换到已打开的窗口。")
         return 0
     apply_theme(app)
     store = Store(data_directory() / "tasks.sqlite3")

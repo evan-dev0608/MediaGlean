@@ -4,7 +4,7 @@
 
 | 类型 | 标签 | 标题 | 使用方式 |
 | --- | --- | --- | --- |
-| 应用 | `client-<版本>` | `Media Downloader <版本> · Windows x64` | 下载 Setup.exe |
+| 应用 | `client-<版本>` | `媒拾（MediaGlean） <版本> · Windows x64` | 下载 Setup.exe |
 | Worker | `worker-<版本>` | `[组件] Worker <版本>` | 应用自动安装 |
 | Python | `python-runtime-<版本>` | `[组件] Python 环境 <版本>` | 应用自动安装 |
 | 媒体工具 | `media-tools-<版本>` | `[组件] 媒体工具 <版本>` | 应用自动安装 |

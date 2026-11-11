@@ -1,6 +1,6 @@
 # 更新记录
 
-应用安装包使用 `client-<版本>` 标签；独立组件不作为应用版本记录。下载见 [Releases](https://github.com/chenzhenpeng/MediaDownloader-Windows/releases)。
+应用安装包使用 `client-<版本>` 标签；独立组件不作为应用版本记录。下载见 [Releases](https://github.com/evan-dev0608/MediaGlean/releases)。
 
 ## 0.3.0 Preview 1 — 2026-11-06
 

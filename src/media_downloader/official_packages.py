@@ -97,7 +97,7 @@ def check_latest(*, client=None, cancelled=lambda: False):
         with httpx.Client(timeout=15, follow_redirects=False, trust_env=False) as connection:
             return check_latest(client=connection, cancelled=cancelled)
     raw = bytearray()
-    with client.stream("GET", PYPI_METADATA, headers={"User-Agent": "MediaDownloader-Windows"}) as response:
+    with client.stream("GET", PYPI_METADATA, headers={"User-Agent": "MediaGlean"}) as response:
         response.raise_for_status()
         for chunk in response.iter_bytes():
             _cancel(cancelled)

@@ -46,9 +46,9 @@ def main():
     qa = ROOT / ".local/installer-qa" / str(time.time_ns())
     destination, data = qa / "安装目录", qa / "state"
     qa.mkdir(parents=True)
-    setup = ROOT / f"dist/release/MediaDownloader-{VERSION}-win-x64-QA-Setup.exe"
+    setup = ROOT / f"dist/release/MediaGlean-{VERSION}-win-x64-QA-Setup.exe"
     assert machine(setup) == 0x8664
-    inventory = json.loads((ROOT / f"dist/release/MediaDownloader-{VERSION}-QA-payload.json").read_text())
+    inventory = json.loads((ROOT / f"dist/release/MediaGlean-{VERSION}-QA-payload.json").read_text())
     report = {
         "qa_directory": str(qa),
         "release": VERSION,
@@ -57,7 +57,7 @@ def main():
         "uses_msi": False,
     }
     payload = destination / "versions" / VERSION
-    executable = payload / "MediaDownloader.exe"
+    executable = payload / "MediaGlean.exe"
 
     def install(log):
         return subprocess.run(

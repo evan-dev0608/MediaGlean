@@ -8,9 +8,9 @@
 #define ReleaseVersion "0.3.0-preview.1"
 #define PayloadVersion "0.3.0-preview.1"
 #ifdef QA
-  #define ProductName "Media Downloader Installer QA"
+  #define ProductName "媒拾 Installer QA"
 #else
-  #define ProductName "Media Downloader"
+  #define ProductName "媒拾"
 #endif
 
 [Setup]
@@ -21,8 +21,8 @@ AppId={{8F5574CB-A715-4BA1-AD07-4212A70D460B}
 #endif
 AppName={#ProductName}
 AppVersion={#ReleaseVersion}
-AppVerName=Media Downloader {#ReleaseVersion}
-AppPublisher=Media Downloader Project
+AppVerName=MediaGlean {#ReleaseVersion}
+AppPublisher=MediaGlean Project
 VersionInfoVersion=0.3.0.1
 DefaultDirName={localappdata}\Programs\MediaDownloader
 DefaultGroupName={#ProductName}
@@ -37,7 +37,7 @@ DisableDirPage=auto
 UsePreviousAppDir=yes
 UsePreviousTasks=yes
 SetupIconFile={#PayloadDir}\Assets\AppIcon.ico
-UninstallDisplayIcon={app}\versions\{#PayloadVersion}\MediaDownloader.exe
+UninstallDisplayIcon={app}\versions\{#PayloadVersion}\MediaGlean.exe
 UninstallDisplayName={#ProductName}
 #ifdef QA
 AppMutex=Local\MediaDownloader.InstallerQA.Running
@@ -49,9 +49,9 @@ CloseApplications=no
 RestartApplications=no
 OutputDir={#ReleaseDir}
 #ifdef QA
-OutputBaseFilename=MediaDownloader-{#ReleaseVersion}-win-x64-QA-Setup
+OutputBaseFilename=MediaGlean-{#ReleaseVersion}-win-x64-QA-Setup
 #else
-OutputBaseFilename=MediaDownloader-{#ReleaseVersion}-win-x64-Setup
+OutputBaseFilename=MediaGlean-{#ReleaseVersion}-win-x64-Setup
 #endif
 Compression=lzma2/max
 SolidCompression=yes
@@ -72,11 +72,11 @@ Source: "{#PayloadDir}\*"; DestDir: "{app}\versions\{#PayloadVersion}"; Flags: i
 Source: "InstallInfo.txt"; DestDir: "{app}"; Flags: ignoreversion
 
 [Icons]
-Name: "{autoprograms}\{#ProductName}"; Filename: "{app}\versions\{#PayloadVersion}\MediaDownloader.exe"; WorkingDir: "{app}\versions\{#PayloadVersion}"
-Name: "{autodesktop}\{#ProductName}"; Filename: "{app}\versions\{#PayloadVersion}\MediaDownloader.exe"; Tasks: desktopicon
+Name: "{autoprograms}\{#ProductName}"; Filename: "{app}\versions\{#PayloadVersion}\MediaGlean.exe"; WorkingDir: "{app}\versions\{#PayloadVersion}"
+Name: "{autodesktop}\{#ProductName}"; Filename: "{app}\versions\{#PayloadVersion}\MediaGlean.exe"; Tasks: desktopicon
 
 [Run]
-Filename: "{app}\versions\{#PayloadVersion}\MediaDownloader.exe"; Description: "启动 Media Downloader"; Flags: nowait postinstall skipifsilent
+Filename: "{app}\versions\{#PayloadVersion}\MediaGlean.exe"; Description: "启动 MediaGlean"; Flags: nowait postinstall skipifsilent
 
 ; No UninstallDelete section: unknown files, task databases, credentials and downloads are retained.
 

@@ -8,6 +8,6 @@
     "github.com",
     "release-assets.githubusercontent.com"
   ],
-  "catalog_url": "https://github.com/chenzhenpeng/MediaDownloader-Windows/releases/download/channel-components-v1/catalog.json",
-  "catalog_signature_url": "https://github.com/chenzhenpeng/MediaDownloader-Windows/releases/download/channel-components-v1/catalog.sig"
+  "catalog_url": "https://github.com/evan-dev0608/MediaGlean/releases/download/channel-components-v1/catalog.json",
+  "catalog_signature_url": "https://github.com/evan-dev0608/MediaGlean/releases/download/channel-components-v1/catalog.sig"
 }
