@@ -4,7 +4,11 @@
 <p align="center"><a href="https://github.com/evan-dev0608/MediaGlean/releases/tag/client-0.3.0-beta.2">下载安装</a> · <a href="docs/user-guide.md">使用说明</a> · <a href="https://github.com/evan-dev0608/MediaGlean/issues">问题反馈</a> · <a href="CONTRIBUTING.md">参与开发</a></p>
 <p align="center"><a href="LICENSE"><img alt="许可证：MIT" src="https://img.shields.io/badge/license-MIT-blue"></a> <img alt="平台：Windows x64" src="https://img.shields.io/badge/platform-Windows%20x64-blue"></p>
 
-粘贴作品链接或分享文案，预览解析结果，再将视频、图片、图集、音频和图文保存到电脑。解析能力来自 [ParseHub](https://github.com/z-mio/ParseHub)，客户端负责下载管理、文件归档与组件更新。
+## 关于项目
+
+媒拾（MediaGlean）是一款面向 Windows 的开源媒体下载工具。粘贴作品链接或分享文案，即可预览视频、图片、图集、音频和图文，再将选中的内容下载并按作品归档。
+
+桌面界面使用 WinUI 3，链接解析由 ParseHub 提供。MediaGlean 的源码以 MIT 许可证发布。[ParseHub](https://github.com/z-mio/ParseHub) · [MIT 许可证](LICENSE)
 
 ## 下载与安装
 
