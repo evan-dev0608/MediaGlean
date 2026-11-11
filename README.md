@@ -1,5 +1,5 @@
-<p align="center"><img src="native/MediaDownloader/Assets/AppIcon.png" width="72" alt="Media Downloader"></p>
-<h1 align="center">Media Downloader</h1>
+<p align="center"><img src="native/MediaDownloader/Assets/AppIcon.png" width="72" alt="媒拾（MediaGlean）"></p>
+<h1 align="center">媒拾（MediaGlean）</h1>
 <p align="center">Windows 原生媒体下载工具 · WinUI 3 · ParseHub</p>
 <p align="center"><a href="https://github.com/chenzhenpeng/MediaDownloader-Windows/releases/latest">下载安装</a> · <a href="docs/user-guide.md">使用说明</a> · <a href="https://github.com/chenzhenpeng/MediaDownloader-Windows/issues">问题反馈</a> · <a href="CONTRIBUTING.md">参与开发</a></p>
 
