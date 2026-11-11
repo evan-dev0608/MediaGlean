@@ -12,7 +12,7 @@
 
 1. 打开 [最新版本](https://github.com/evan-dev0608/MediaGlean/releases/latest)，在 Assets 中下载 `MediaGlean-*-win-x64-Setup.exe` 和 `SHA256SUMS.txt`。
 2. 用 PowerShell 运行 `Get-FileHash .\MediaGlean-*-win-x64-Setup.exe -Algorithm SHA256`，将摘要与 `SHA256SUMS.txt` 中同名文件的记录比较。
-3. 运行安装程序。安装按当前用户进行，自带所需运行组件。安装程序为预览版，尚未进行 Windows 产品代码签名。
+3. 运行安装程序。安装按当前用户进行，自带所需运行组件。安装程序为 Beta 版，尚未进行 Windows 产品代码签名。
 
 升级步骤见 [用户指南](docs/user-guide.md#安装与升级)。
 

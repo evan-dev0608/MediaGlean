@@ -4,9 +4,9 @@
 
 在 [最新版本](https://github.com/evan-dev0608/MediaGlean/releases/latest) 下载 `MediaGlean-*-win-x64-Setup.exe`。按当前用户安装；更新前退出应用。无需手动安装 Python、ParseHub 或媒体工具。
 
-当前为尚未进行 Windows 产品代码签名的预览版。0.3 使用 `%LOCALAPPDATA%/MediaDownloader/v6`，不迁移旧版数据。卸载不会删除已有下载文件。
+当前为尚未进行 Windows 产品代码签名的 Beta 版。0.3 使用 `%LOCALAPPDATA%/MediaDownloader/v6`，不迁移旧版数据。卸载不会删除已有下载文件。
 
-从 Preview 2 起，默认安装目录是 `%LOCALAPPDATA%\Programs\MediaGlean`。如果上一版装在旧的默认目录 `%LOCALAPPDATA%\Programs\MediaDownloader`，先在 Windows 设置中卸载，再运行新版安装程序。应用数据位于独立目录，卸载后会保留。
+从 Beta 2 起，默认安装目录是 `%LOCALAPPDATA%\Programs\MediaGlean`。如果上一版装在旧的默认目录 `%LOCALAPPDATA%\Programs\MediaDownloader`，先在 Windows 设置中卸载，再运行新版安装程序。应用数据位于独立目录，卸载后会保留。
 
 ## 解析与下载
 

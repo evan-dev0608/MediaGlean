@@ -10,7 +10,7 @@
 | 媒体工具 | `media-tools-<版本>` | `[组件] 媒体工具 <版本>` | 应用自动安装 |
 | 当前目录 | `channel-components-v1` | `[更新渠道] 执行组件` | 应用自动读取 |
 
-ParseHub 官方包直接来自 PyPI，不重新打包或改版本。Latest 只指向推荐应用安装包；当前仍为 Preview，标题和正文必须明确。组件和渠道均设置 `make_latest=false`。当前下载与更新入口不修改标签和附件名。
+ParseHub 官方包直接来自 PyPI，不重新打包或改版本。Latest 只指向推荐应用安装包；当前为 Beta，标题和正文必须明确。组件和渠道均设置 `make_latest=false`。当前下载与更新入口不修改标签和附件名。
 
 ## 应用
 

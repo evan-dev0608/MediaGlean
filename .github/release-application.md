@@ -2,7 +2,7 @@
 
 Windows 10 2004（内部版本 19041）或更新版本，x64。在 Assets 中下载 `MediaGlean-*-win-x64-Setup.exe` 和 `SHA256SUMS.txt`。校验安装包的 SHA-256 后运行安装程序。
 
-安装程序按当前用户安装，自带运行组件。预览版安装程序未进行 Windows 产品代码签名。[安装与升级](https://github.com/evan-dev0608/MediaGlean/blob/main/docs/user-guide.md#安装与升级)
+安装程序按当前用户安装，自带运行组件。Beta 安装程序未进行 Windows 产品代码签名。[安装与升级](https://github.com/evan-dev0608/MediaGlean/blob/main/docs/user-guide.md#安装与升级)
 
 ## 版本变更
 

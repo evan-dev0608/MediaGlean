@@ -4,7 +4,7 @@
 | --- | --- | --- |
 | 应用包 | WinUI、任务服务、数据库、凭据、更新协调器 | x64 安装程序 |
 | Worker | IPC、官方 SDK 适配、预览、下载处理、HLS 合并及文件提交 | 本项目签名小包 |
-| ParseHub | 未修改的官方 wheel，Preview 2 内置 2.4.1 | 官方 PyPI，保留原版本和原包 |
+| ParseHub | 未修改的官方 wheel，Beta 2 内置 2.4.1 | 官方 PyPI，保留原版本和原包 |
 | Python 环境 | Python 3.13.17、固定依赖和 Python yt-dlp 模块 | 独立签名完整环境包 |
 | 媒体工具 | FFmpeg、ffprobe 和许可文件 | 独立签名工具包，或显式选择本地目录 |
 

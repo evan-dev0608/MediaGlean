@@ -5,8 +5,8 @@
 #ifndef ReleaseDir
   #error ReleaseDir is required
 #endif
-#define ReleaseVersion "0.3.0-preview.2"
-#define PayloadVersion "0.3.0-preview.2"
+#define ReleaseVersion "0.3.0-beta.2"
+#define PayloadVersion "0.3.0-beta.2"
 #ifdef QA
   #define ProductName "媒拾 Installer QA"
 #else
