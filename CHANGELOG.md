@@ -2,6 +2,12 @@
 
 应用安装包使用 `client-<版本>` 标签；独立组件不作为应用版本记录。下载见 [Releases](https://github.com/evan-dev0608/MediaGlean/releases)。
 
+## 0.3.0 Preview 1 · MediaGlean 首发 — 2026-11-11
+
+- Windows 应用采用 MediaGlean 品牌、新图标和 `MediaGlean.exe` 主程序。
+- 更新安装说明、诊断文件名及 GitHub 下载、反馈和组件更新地址。
+
+
 ## 0.3.0 Preview 1 — 2026-11-06
 
 - 应用、Worker、官方 ParseHub、Python 与依赖、媒体工具分别管理版本。
