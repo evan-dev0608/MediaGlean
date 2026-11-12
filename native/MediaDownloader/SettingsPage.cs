@@ -104,12 +104,14 @@ public sealed partial class MainWindow
         buttons.Children.Add(ActionButton("保存连接设置", async (_, _) => {
             if (platformPicker.SelectedItem is not ComboBoxItem selected) return;
             var revision = credentialReadRevision; var platform = selected.Tag as string;
-            var result = await CallAsync("connection", new { platform = selected.Tag as string, cookie = cookieInput.Password, proxy = proxyInput.Text });
+            var submittedProxy = proxyInput.Text;
+            var result = await CallAsync("connection", new { platform, cookie = cookieInput.Password, proxy = submittedProxy });
             if (result is not null) {
                 if (((platformPicker.SelectedItem as ComboBoxItem)?.Tag as string) == platform && revision == credentialReadRevision) {
-                    proxyInput.Text = ""; await LoadSavedCookieAsync();
+                    if (proxyInput.Text == submittedProxy) proxyInput.Text = "";
+                    await LoadSavedCookieAsync();
                 }
-                ShowInfo("连接设置已加密保存，Cookie 默认隐藏，可按住眼睛查看。");
+                ShowInfo("已保存平台连接设置。");
             }
         }, true));
         buttons.Children.Add(ActionButton("删除 Cookie", async (_, _) => {
@@ -182,8 +184,8 @@ public sealed partial class MainWindow
         updateAdvanced.Header = ExpanderHeading("\uE713", "组件维护", "自动检查、组合锁定与恢复");
         updateAdvanced.Content = options;
         body.Children.Add(updateAdvanced);
-        var about = SettingsGroup("应用包");
-        var aboutRow = SettingRow("媒拾（MediaGlean）", "", ActionButton("版本详情", async (_, _) => await ShowVersionsAsync()));
+        var about = SettingsGroup("关于");
+        var aboutRow = SettingRow("媒拾（MediaGlean）", "", ActionButton("关于项目", async (_, _) => await ShowAboutAsync()));
         settingsAboutRow = aboutRow;
         productVersion.Style = (Style)Application.Current.Resources["SecondaryText"]; productVersion.FontSize = 12;
         ((StackPanel)aboutRow.Children[0]).Children.RemoveAt(1); ((StackPanel)aboutRow.Children[0]).Children.Add(productVersion);
@@ -256,10 +258,25 @@ public sealed partial class MainWindow
         await dialog.ShowAsync();
     }
 
-    private async Task ShowVersionsAsync()
+    private async Task ShowAboutAsync()
     {
+        var content = new StackPanel { Spacing = 8 };
+        content.Children.Add(new TextBlock {
+            Text = "MediaGlean 是一款开源 Windows 媒体下载工具。界面使用 WinUI 3，媒体解析由 ParseHub 提供。",
+            TextWrapping = TextWrapping.Wrap
+        });
+        content.Children.Add(new HyperlinkButton {
+            Content = "GitHub 项目主页", NavigateUri = new Uri("https://github.com/evan-dev0608/MediaGlean")
+        });
+        content.Children.Add(new HyperlinkButton {
+            Content = "MIT 开源许可证", NavigateUri = new Uri("https://github.com/evan-dev0608/MediaGlean/blob/main/LICENSE")
+        });
+        content.Children.Add(new HyperlinkButton {
+            Content = "报告问题", NavigateUri = new Uri("https://github.com/evan-dev0608/MediaGlean/issues/new/choose")
+        });
+        content.Children.Add(new TextBlock { Text = versionText.Text, TextWrapping = TextWrapping.Wrap, IsTextSelectionEnabled = true });
         var dialog = new ContentDialog { XamlRoot = Root.XamlRoot, RequestedTheme = Root.ActualTheme,
-            Title = "版本信息", Content = new TextBlock { Text = versionText.Text, TextWrapping = TextWrapping.Wrap, IsTextSelectionEnabled = true },
+            Title = "关于 MediaGlean", Content = new ScrollViewer { Content = content },
             SecondaryButtonText = "导出诊断", CloseButtonText = "关闭", DefaultButton = ContentDialogButton.Close };
         if (await dialog.ShowAsync() == ContentDialogResult.Secondary) await ExportDiagnosticsAsync();
     }

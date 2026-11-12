@@ -38,7 +38,7 @@ public sealed partial class MainWindow
         composeHeading.Children.Add(Text("支持视频、图片 / 图集、音频、文本及图文 / Markdown", "SecondaryText"));
         composer.Children.Add(composeHeading);
         AutomationProperties.SetName(linkInput, "作品链接或分享文案");
-        linkInput.TextChanged += (_, _) => parseButton.IsEnabled = !string.IsNullOrWhiteSpace(linkInput.Text);
+        linkInput.TextChanged += (_, _) => parseButton.IsEnabled = !submittingInspection && !string.IsNullOrWhiteSpace(linkInput.Text);
         var shortcut = new KeyboardAccelerator { Key = VirtualKey.Enter, Modifiers = VirtualKeyModifiers.Control };
         shortcut.Invoked += async (_, e) => { e.Handled = true; await ParseAsync(); };
         linkInput.KeyboardAccelerators.Add(shortcut);
@@ -47,8 +47,17 @@ public sealed partial class MainWindow
         actions.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
         actions.ColumnDefinitions.Add(new ColumnDefinition { Width = GridLength.Auto });
         var secondary = new StackPanel { Orientation = Orientation.Horizontal, Spacing = 4 };
-        secondary.Children.Add(ActionButton("粘贴链接", async (_, _) => {
-            try { var content = Clipboard.GetContent(); if (content.Contains(StandardDataFormats.Text)) linkInput.Text = await content.GetTextAsync(); }
+        secondary.Children.Add(ActionButton("从剪贴板粘贴", async (_, _) => {
+            try {
+                var content = Clipboard.GetContent();
+                var pasted = content.Contains(StandardDataFormats.Text) ? await content.GetTextAsync() : "";
+                if (string.IsNullOrWhiteSpace(pasted)) {
+                    ShowInfo("剪贴板中没有可粘贴的文本。");
+                    return;
+                }
+                linkInput.SelectedText = pasted;
+                linkInput.Focus(FocusState.Programmatic);
+            }
             catch { ShowError("无法读取剪贴板，请直接粘贴到链接输入框。"); }
         }));
         secondary.Children.Add(ActionButton("清空", (_, _) => linkInput.Text = ""));
@@ -139,17 +148,26 @@ public sealed partial class MainWindow
         parseEmptyTitle.Text = active > 0 ? "正在获取作品信息" : "等待解析结果";
     }
 
+    private bool submittingInspection;
+
     private async Task ParseAsync()
     {
-        if (string.IsNullOrWhiteSpace(linkInput.Text)) return;
-        parseButton.IsEnabled = false; GlobalNotice.IsOpen = false;
-        var result = await CallAsync("inspect", new { text = linkInput.Text, output_root = downloadRoot });
-        if (result is not null) {
+        var submittedText = linkInput.Text;
+        if (submittingInspection || string.IsNullOrWhiteSpace(submittedText)) return;
+        submittingInspection = true;
+        parseButton.IsEnabled = false;
+        GlobalNotice.IsOpen = false;
+        try {
+            var result = await CallAsync("inspect", new { text = submittedText, output_root = downloadRoot });
+            if (result is null) return;
             pendingInspections.Clear();
             foreach (var id in result.Value.GetProperty("ids").EnumerateArray()) pendingInspections.Add(id.GetString()!);
-            linkInput.Text = ""; ShowInfo("正在解析作品，预览准备好后会显示在下方。");
+            if (linkInput.Text == submittedText) linkInput.Text = "";
         }
-        else parseButton.IsEnabled = !string.IsNullOrWhiteSpace(linkInput.Text);
+        finally {
+            submittingInspection = false;
+            parseButton.IsEnabled = !string.IsNullOrWhiteSpace(linkInput.Text);
+        }
     }
 
     private async Task ShowPlatformsAsync()

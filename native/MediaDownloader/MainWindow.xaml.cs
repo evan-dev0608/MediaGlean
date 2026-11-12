@@ -82,7 +82,7 @@ public sealed partial class MainWindow : Window
         if (backend is null) return;
         try {
             await backend.CallAsync("view", new { scope = "all",
-                query = currentPage == "downloads" ? taskSearch.Text : "",
+                query = currentPage == "downloads" ? taskSearch.Text.Trim() : "",
                 state = currentPage == "downloads" ? SelectedTaskState : "", offset });
         } catch (Exception e) { ShowError(e.Message); }
     }
@@ -130,8 +130,13 @@ public sealed partial class MainWindow : Window
         taskCount.Text = $"共 {value.Number("total")} 项";
         taskEmpty.Visibility = visibleTasks.Count == 0 ? Visibility.Visible : Visibility.Collapsed;
         taskList.Visibility = visibleTasks.Count > 0 ? Visibility.Visible : Visibility.Collapsed;
-        taskEmptyTitle.Text = taskSearch.Text.Length > 0 ? "没有匹配的任务" : SelectedTaskState switch {
+        var searching = !string.IsNullOrWhiteSpace(taskSearch.Text);
+        var filtered = SelectedTaskState.Length > 0;
+        taskEmptyTitle.Text = searching ? "没有匹配的任务" : SelectedTaskState switch {
             "active" => "暂无进行中的任务", "completed" => "还没有完成的下载", "failed" => "暂无失败任务", _ => "还没有下载记录" };
+        taskEmptyDescription.Text = searching ? "试试其他作品名称或平台，或查看全部任务。"
+            : filtered ? "查看全部任务，或切换到其他状态。" : "添加作品链接，预览后即可开始下载。";
+        taskEmptyAction.Content = searching || filtered ? "查看全部任务" : "新建下载";
         platformLink.Content = $"支持 {value.GetProperty("platforms").GetArrayLength()} 个平台";
         pager.Visibility = value.Number("total") > 50 ? Visibility.Visible : Visibility.Collapsed;
         previousPage.IsEnabled = value.Number("offset") > 0;
@@ -255,9 +260,11 @@ public sealed partial class MainWindow : Window
         if (result is null) return;
         try {
             var path = result.Value.String("path");
-            if (Directory.Exists(path)) await Launcher.LaunchFolderAsync(await StorageFolder.GetFolderFromPathAsync(path));
-            else await Launcher.LaunchFileAsync(await StorageFile.GetFileFromPathAsync(path));
-        } catch { ShowError("无法打开文件，请检查保存位置或 Windows 默认应用设置。"); }
+            var opened = Directory.Exists(path)
+                ? await Launcher.LaunchFolderAsync(await StorageFolder.GetFolderFromPathAsync(path))
+                : await Launcher.LaunchFileAsync(await StorageFile.GetFileFromPathAsync(path));
+            if (!opened) ShowError(media ? "Windows 未能打开文件，请检查默认应用设置。" : "Windows 未能打开文件夹。");
+        } catch { ShowError(media ? "无法打开文件，请检查文件是否已移动或删除。" : "无法打开文件夹，请检查保存位置是否仍然可用。"); }
     }
     private async Task PickFolderAsync()
     {

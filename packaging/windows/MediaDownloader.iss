@@ -5,8 +5,8 @@
 #ifndef ReleaseDir
   #error ReleaseDir is required
 #endif
-#define ReleaseVersion "0.3.0-beta.2"
-#define PayloadVersion "0.3.0-beta.2"
+#define ReleaseVersion "0.3.0-beta.3"
+#define PayloadVersion "0.3.0-beta.3"
 #ifdef QA
   #define ProductName "媒拾 Installer QA"
 #else
@@ -23,7 +23,7 @@ AppName={#ProductName}
 AppVersion={#ReleaseVersion}
 AppVerName=MediaGlean {#ReleaseVersion}
 AppPublisher=MediaGlean Project
-VersionInfoVersion=0.3.0.2
+VersionInfoVersion=0.3.0.3
 DefaultDirName={localappdata}\Programs\MediaGlean
 DefaultGroupName={#ProductName}
 PrivilegesRequired=lowest

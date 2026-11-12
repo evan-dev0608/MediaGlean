@@ -9,6 +9,8 @@ namespace MediaDownloader;
 public sealed partial class MainWindow
 {
     private readonly TextBlock taskTitle = new(), taskDescription = new(), taskCount = new(), taskEmptyTitle = new();
+    private readonly TextBlock taskEmptyDescription = new() { TextAlignment = TextAlignment.Center, TextWrapping = TextWrapping.Wrap };
+    private Button taskEmptyAction = null!;
     private readonly TextBox taskSearch = new() { PlaceholderText = "搜索作品或平台", MinWidth = 180 };
     private readonly SelectorBar taskFilter = new();
     private readonly StackPanel taskEmpty = new() { Spacing = 12, HorizontalAlignment = HorizontalAlignment.Center, VerticalAlignment = VerticalAlignment.Center, MaxWidth = 360, Margin = new Thickness(24) };
@@ -60,12 +62,20 @@ public sealed partial class MainWindow
         taskEmptyTitle.Style = (Style)Application.Current.Resources["SectionTitle"]; taskEmptyTitle.HorizontalAlignment = HorizontalAlignment.Center;
         taskEmptyTitle.TextAlignment = TextAlignment.Center; taskEmptyTitle.TextWrapping = TextWrapping.Wrap;
         taskEmpty.Children.Add(taskEmptyTitle);
-        var emptyDescription = Text("添加作品链接，预览后即可开始下载。", "SecondaryText");
-        emptyDescription.TextAlignment = TextAlignment.Center;
-        taskEmpty.Children.Add(emptyDescription);
-        var emptyAction = ActionButton("添加下载", (_, _) => GoHome(), true);
-        emptyAction.HorizontalAlignment = HorizontalAlignment.Center;
-        taskEmpty.Children.Add(emptyAction);
+        taskEmptyDescription.Style = (Style)Application.Current.Resources["SecondaryText"];
+        taskEmpty.Children.Add(taskEmptyDescription);
+        taskEmptyAction = ActionButton("新建下载", async (_, _) => {
+            if (string.IsNullOrWhiteSpace(taskSearch.Text) && SelectedTaskState.Length == 0) {
+                GoHome();
+                return;
+            }
+            taskSearch.Text = "";
+            searchTimer.Stop();
+            if (SelectedTaskState.Length > 0) taskFilter.SelectedItem = taskFilter.Items[0];
+            else await ChangeViewAsync();
+        }, true);
+        taskEmptyAction.HorizontalAlignment = HorizontalAlignment.Center;
+        taskEmpty.Children.Add(taskEmptyAction);
         content.Children.Add(taskEmpty); Grid.SetRow(content, 2); taskPage.Children.Add(content);
         previousPage.Click += async (_, _) => await ChangeViewAsync(Math.Max(0, snapshot.Number("offset") - 50));
         nextPage.Click += async (_, _) => await ChangeViewAsync(snapshot.Number("offset") + 50);

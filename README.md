@@ -1,7 +1,7 @@
 <p align="center"><img src="assets/MediaGlean.png" width="72" alt="媒拾（MediaGlean）"></p>
 <h1 align="center">媒拾（MediaGlean）</h1>
 <p align="center">Windows 原生媒体下载工具 · WinUI 3 · ParseHub</p>
-<p align="center"><a href="https://github.com/evan-dev0608/MediaGlean/releases/tag/client-0.3.0-beta.2">下载安装</a> · <a href="docs/user-guide.md">使用说明</a> · <a href="https://github.com/evan-dev0608/MediaGlean/issues">问题反馈</a> · <a href="CONTRIBUTING.md">参与开发</a></p>
+<p align="center"><a href="https://github.com/evan-dev0608/MediaGlean/releases/tag/client-0.3.0-beta.3">下载安装</a> · <a href="docs/user-guide.md">使用说明</a> · <a href="https://github.com/evan-dev0608/MediaGlean/issues">问题反馈</a> · <a href="CONTRIBUTING.md">参与开发</a></p>
 <p align="center"><a href="LICENSE"><img alt="许可证：MIT" src="https://img.shields.io/badge/license-MIT-blue"></a> <img alt="平台：Windows x64" src="https://img.shields.io/badge/platform-Windows%20x64-blue"></p>
 
 ## 关于项目
@@ -14,7 +14,7 @@
 
 **系统要求**：Windows 10 2004（内部版本 19041）或更新版本，x64。
 
-1. 打开 [0.3.0 Beta 2](https://github.com/evan-dev0608/MediaGlean/releases/tag/client-0.3.0-beta.2)，在 Assets 中下载 `MediaGlean-*-win-x64-Setup.exe` 和 `SHA256SUMS.txt`。
+1. 打开 [0.3.0 Beta 3](https://github.com/evan-dev0608/MediaGlean/releases/tag/client-0.3.0-beta.3)，在 Assets 中下载 `MediaGlean-*-win-x64-Setup.exe` 和 `SHA256SUMS.txt`。
 2. 用 PowerShell 运行 `Get-FileHash .\MediaGlean-*-win-x64-Setup.exe -Algorithm SHA256`，将摘要与 `SHA256SUMS.txt` 中同名文件的记录比较。
 3. 运行安装程序。安装按当前用户进行，自带所需运行组件。安装程序为 Beta 版，尚未进行 Windows 产品代码签名。
 
